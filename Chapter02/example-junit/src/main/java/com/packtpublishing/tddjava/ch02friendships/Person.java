@@ -10,11 +10,9 @@ import java.util.List;
  */
 public class Person {
     @Id
-    private String name;
+    private final String name;
 
-    private List<String> friends;
-
-    public Person() { }
+    private final List<String> friends;
 
     public Person(String name) {
         this.name = name;
@@ -26,7 +24,9 @@ public class Person {
     }
 
     public void addFriend(String friend) {
-        if (!friends.contains(friend)) friends.add(friend);
+        if (!friends.contains(friend)) {
+            friends.add(friend);
+        }
     }
 
     @Override
